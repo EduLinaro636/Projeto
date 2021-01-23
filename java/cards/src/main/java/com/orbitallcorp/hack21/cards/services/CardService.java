@@ -3,7 +3,9 @@ package com.orbitallcorp.hack21.cards.services;
 import com.orbitallcorp.hack21.cards.domains.Card;
 import com.orbitallcorp.hack21.cards.repositories.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class CardService{
     private CardRepository cardRepo;
 
     //Retorna todos os cartões
+    @ResponseStatus(code= HttpStatus.OK)
     public List<Card> getCards(){
         return (List<Card>) cardRepo.findAll();
     }
